@@ -8,9 +8,11 @@ CREATE TABLE products (
     department_name VARCHAR (255) NOT NULL,
     price DECIMAL (10,2) NOT NULL,
     stock_quantity int (11) NOT NULL
+    
 );    
 
-
+ALTER TABLE products
+ADD product_sales int (11) NOT NULL;
     
 -- Insert data into the 'products' table --
 INSERT INTO products (product_name, department_name, price, stock_quantity)
@@ -42,8 +44,7 @@ VALUES ('Turkey trouble', 'Books', 7.99, 537),
                 
 	CREATE TABLE departments (
 	item_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    product_name VARCHAR (255) NOT NULL,
+    department_id VARCHAR (255) NOT NULL,
     department_name VARCHAR (255) NOT NULL,
-    price DECIMAL (10,2) NOT NULL,
-    stock_quantity int (11) NOT NULL
+    over_head_costs VARCHAR (255) NOT NULL
 );    
