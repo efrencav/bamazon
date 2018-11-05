@@ -1,55 +1,52 @@
-# bamazon
-Amazon-like storefront with the MySQL database
+# Bamazon
 
-```
-CREATE DATABASE bamazon;
+## Description
 
-USE bamazon;
+This application implements a simple command line based storefront using the npm [inquirer](https://www.npmjs.com/package/inquirer) package and the MySQL database backend together with the npm [mysql](https://www.npmjs.com/package/mysql) package. The application presents two interfaces: **customer** and **manager**.
 
-CREATE TABLE products (
-	item_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    product_name VARCHAR (255) NOT NULL,
-    department_name VARCHAR (255) NOT NULL,
-    price DECIMAL (10,2) NOT NULL,
-    stock_quantity int (11) NOT NULL
-    
-);    
+### MySQL Database Setup
 
-ALTER TABLE products
-ADD product_sales int (11) NOT NULL;
-    
--- Insert data into the 'products' table --
-INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ('Turkey trouble', 'Books', 7.99, 537),
-				('After Nightfall', 'Books',7.48, 301),
-                ('Bleak Harbor: A Novel', 'Books',4.99, 13),
-				('Head & Shoulders Classic', 'Health and Beauty', 14.50, 93),
-                ('Franklin Sports NFL Deluxe Youth Uniform Set', 'Sports', 65.68, 2294),
-                ('Wilson NFL MVP Junior Football w/ Pump & Tee', 'Sports', 8.99, 389),
-                ('Wilson Traditional Soccer Ball', 'Sports', 8.27, 1340),
-                ('Franklin Sports Black Hawk Portable Soccer Goal', 'Sports', 19.99, 882),
-                ('Franklin Sports Ball Maintenance Kit: Pump', 'Sports', 7.99, 1374),
-                ('Champion Sports Economy Electric Inflating Air Pump','Electronics', 78.86, 32),
-                ('Coleman Sundome 4-Person Tent', 'Outdoors', 52.97, 2676),
-                ('Coleman Palmetto Cool Weather Adult Sleeping Bag', 'Outdoors', 22.99, 3842),
-                ('Coleman Evanston Dome Tent with Screen Room', 'Outdoors', 127.27, 1325),
-                ('Image Portable LED Camping Lantern with Ceiling Fan', 'Electronics', 13.99, 2516),
-                ('MalloMe Camping Tent Lantern Bulb Lights - 4 Pack', 'Electronics', 8.66, 125),
-                ('Intex Explorer K2 Kayak, 2-Person Inflatable Kayak', 'Outdoors', 79.99, 1969),
-                ('Stearns Adult Classic Series Vest', 'Outdoors', 22.63, 795),
-                ('Intex Challenger K1 Kayak', 'Outdoors', 67.42, 1950),
-                ('Inflatable Stand Up Board With Fins', 'Outdoors', 369.00, 2),
-                ('RED Paddle 2018 Co. RIDE Inflatable Paddle', 'Outdoors', 1249.99, 5),
-                ('Body Glove Aquatic Aire Snorkel Mask', 'Accessories', 79.99, 1),
-                ('Weightlifting Gloves with Integrated','Accessories', 29.99, 7),
-                ('Leather Palm for Fitness Workout', 'Accessories', 8.99, 155);
-                
-                SELECT * FROM products;
-                
-	CREATE TABLE departments (
-	item_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    department_id VARCHAR (255) NOT NULL,
-    department_name VARCHAR (255) NOT NULL,
-    over_head_costs VARCHAR (255) NOT NULL
-);    
-```
+In order to run this application, you should have the MySQL database already set up on your machine. If you don't, visit the [MySQL installation page](https://dev.mysql.com/doc/refman/5.6/en/installing.html) to install the version you need for your operating system. Once you have MySQL isntalled, you will be able to create the *Bamazon* database and the *products* table with the SQL code found in [bamazon.sql](bamazon.sql). Run this code inside your MySQL client like [Sequel Pro](https://www.sequelpro.com/) to populate the database, install [console.table] (https://www.npmjs.com/package/console.table) then you will be ready to proceed with running the Bamazon customer and manager interfaces.
+
+### Customer Interface
+
+The customer interface allows the user to view the current inventory of store items: item IDs, descriptions, department in which the item is located and price. The user is then able to purchase one of the existing items by entering the item ID and the desired quantity. If the selected quantity is currently in stock, the user's order is fulfilled, displaying the total purchase price and updating the store database. If the desired quantity is not available, the user is prompted to modify their order.
+
+To run the customer interface please follow the steps below:
+
+	git clone https://github.com/efrencav/bamazon.git
+	cd bamazon
+	npm install
+	node bamazonCustomer.js
+
+### Manager Interace
+
+The manager interface presents a list of four options, as below. 
+
+	? What would you like to do? (Use arrow keys)
+	❯ View Products for Sale 
+	  View Low Inventory 
+	  Add to Inventory 
+	  Add New Product
+	  
+The **View Products for Sale** option allows the user to view the current inventory of store items: item IDs, descriptions, department in which the item is located, price, and the quantity available in stock. 
+
+The **View Low Inventory** option shows the user the items which currently have fewer than 100 units available.
+
+The **Add to Inventory** option allows the user to select a given item ID and add additional inventory to the target item.
+
+The **Add New Product** option allows the user to enter details about a new product which will be entered into the database upon completion of the form.
+
+To run the manager interface please follow the steps below:
+
+	git clone git clone https://github.com/efrencav/bamazon.git
+	cd bamazon
+	npm install
+	node bamazonManager.js
+
+### Bamazon Demo
+
+You can download and watch the demo of the Bamazon customer and manager interfaces at the link below. Make sure to download the video, as opposed to watching it in your Browser, which will display a compressed version making the CLI output illegible.
+
+[Bamazon Demo](https://drive.google.com/file/d/1Pu1A0ee61boshLwtkz3UbMTah6f_z9cr/view)
+
