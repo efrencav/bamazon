@@ -40,7 +40,7 @@ function start() {
                 if (pass) {
                     return true;
                 }
-                return 'Please select a valide ID';
+                return 'Please select a valid ID';
             }
         },
         {
@@ -88,7 +88,7 @@ function start() {
             case 'View products for Sale':
                 readProducts();
                 break;
-            case 'Vew low inventory':
+            case 'View low inventory':
                 viewLow();
                 break;
             case 'Add to inventory':
@@ -106,7 +106,7 @@ function start() {
                 break;
             case 'Add new product':
                 createProduct(ans.newName, ans.newDept, parseInt(ans.newPrice), parseInt(ans.newStock));
-                breakl
+                break;
         }
     });
 }
@@ -171,7 +171,7 @@ function createProduct(name, dept, price, stock) {
         },
         function (err, res) {
             if (err) throw err;
-            console.log('New product made!\n');
+            console.log('New product added!\n');
             reset();
         }
     );
