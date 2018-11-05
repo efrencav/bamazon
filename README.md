@@ -19,7 +19,7 @@ To run the customer interface please follow the steps below:
 	npm install
 	node bamazonCustomer.js
 
-### Manager Interace
+### Manager Interface
 
 The manager interface presents a list of four options, as below. 
 
@@ -36,6 +36,26 @@ The **View Low Inventory** option shows the user the items which currently have 
 The **Add to Inventory** option allows the user to select a given item ID and add additional inventory to the target item.
 
 The **Add New Product** option allows the user to enter details about a new product which will be entered into the database upon completion of the form.
+
+To run the manager interface please follow the steps below:
+
+	git clone git clone https://github.com/efrencav/bamazon.git
+	cd bamazon
+	npm install
+	node bamazonManager.js
+
+### Supervisor Interface
+
+The supervisor interface presents a list of two options, as below. 
+
+	? What would you like to do? (Use arrow keys)
+	❯ View Products sales by Department 
+	  Create new Department 
+	  
+	  
+The **View Products sales by Department** option allows the user to view the current sales of the store items: item Department ID, department name, overhead costs in which the item is located, price, and the quantity available in stock. 
+
+The **Create new Department** option allows the supervisor to add a new department.
 
 To run the manager interface please follow the steps below:
 
